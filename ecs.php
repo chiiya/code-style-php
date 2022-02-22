@@ -1,6 +1,6 @@
 <?php
 
-use Antwerpes\CodeStyle\CodeStyle;
+use Chiiya\CodeStyle\CodeStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 

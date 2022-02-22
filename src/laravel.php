@@ -1,6 +1,6 @@
 <?php
 
-namespace Antwerpes\CodeStyle;
+namespace Chiiya\CodeStyle;
 
 use PhpCsFixer\Fixer\Alias\{ArrayPushFixer,
     BacktickToShellExecFixer,

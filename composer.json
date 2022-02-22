@@ -1,16 +1,18 @@
 {
-    "name": "antwerpes/code-style-php",
+    "name": "chiiya/code-style-php",
     "description": "ESC configuration for PHP projects",
     "keywords": [
-        "antwerpes",
-        "code-style-php"
+        "laravel",
+        "code-style",
+        "linting",
+        "esc"
     ],
-    "homepage": "https://github.com/antwerpes/code-style-php",
+    "homepage": "https://github.com/chiiya/code-style-php",
     "license": "MIT",
     "authors": [
         {
             "name": "Elisha Witte",
-            "email": "elisha.witte@antwerpes.com",
+            "email": "github@chiiya.moe",
             "role": "Developer"
         }
     ],
@@ -25,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Antwerpes\\CodeStyle\\": "src"
+            "Chiiya\\CodeStyle\\": "src"
         }
     },
     "config": {
@@ -39,7 +41,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Antwerpes\\CodeStyle\\CodeStyleServiceProvider"
+                "Chiiya\\CodeStyle\\CodeStyleServiceProvider"
             ]
         }
     },
