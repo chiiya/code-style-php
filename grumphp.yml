@@ -5,6 +5,9 @@ grumphp:
   ignore_unstaged_changes: false
   hide_circumvention_tip: false
   process_timeout: 60
+  ascii:
+    failed: failed.txt
+    succeeded: succeeded.txt
   parallel:
     enabled: false
     max_workers: 32
