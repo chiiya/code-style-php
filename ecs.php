@@ -1,0 +1,13 @@
+<?php
+
+use Antwerpes\CodeStyle\CodeStyle;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\ValueObject\Option;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $containerConfigurator->import(CodeStyle::LARAVEL);
+    $parameters = $containerConfigurator->parameters();
+    $parameters->set(Option::PATHS, [
+        __DIR__ . '/src',
+    ]);
+};
