@@ -313,8 +313,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(NoPhp4ConstructorFixer::class)
         // A `final` class must not have `final` methods and `private` methods must not be `final`.
         ->set(NoUnneededFinalMethodFixer::class)
-        // Orders the elements of classes/interfaces/traits.
-        ->set(OrderedClassElementsFixer::class)
         // Orders the interfaces in an `implements` or `interface extends` clause.
         ->set(OrderedInterfacesFixer::class)
         // Trait `use` statements must be sorted alphabetically.
