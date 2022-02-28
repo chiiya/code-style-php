@@ -573,10 +573,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(PhpUnitDedicateAssertInternalTypeFixer::class)
         // PHPUnit annotations should be a FQCNs including a root namespace.
         ->set(PhpUnitFqcnAnnotationFixer::class)
-        // All PHPUnit test classes should be marked as internal.
-        ->set(PhpUnitInternalClassFixer::class)
         // Enforce camel (or snake) case for PHPUnit test methods, following configuration.
-        ->set(PhpUnitMethodCasingFixer::class)
+        ->set(PhpUnitMethodCasingFixer::class)->call('configure', [[
+            'case' => 'snake_case',
+        ]])
         // Usages of `->getMock` and `->getMockWithoutInvokingTheOriginalConstructor` methods MUST be replaced by `->createMock` or `->createPartialMock` methods.
         ->set(PhpUnitMockFixer::class)
         // Usage of PHPUnit\'s mock e.g. `->will($this->returnValue(..))` must be replaced by its shorter equivalent such as `->willReturn(...)`.
@@ -587,16 +587,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(PhpUnitNoExpectationAnnotationFixer::class)
         // Changes the visibility of the `setUp()` and `tearDown()` functions of PHPUnit to `protected`, to match the PHPUnit TestCase.
         ->set(PhpUnitSetUpTearDownVisibilityFixer::class)
-        // All PHPUnit test cases should have `@small`, `@medium` or `@large` annotation to enable run time limits.
-        ->set(PhpUnitSizeClassFixer::class)
         // PHPUnit methods like `assertSame` should be used instead of `assertEquals`.
         ->set(PhpUnitStrictFixer::class)
         // Adds or removes @test annotations from tests, following configuration.
         ->set(PhpUnitTestAnnotationFixer::class)
         // Calls to `PHPUnit\Framework\TestCase` static methods must all be of the same type, either `$this->`, `self::` or `static::`.
-        ->set(PhpUnitTestCaseStaticMethodCallsFixer::class)
-        // Adds a default `@coversNothing` annotation to PHPUnit test classes that have no `@covers*` annotation.
-        ->set(PhpUnitTestClassRequiresCoversFixer::class)
+        ->set(PhpUnitTestCaseStaticMethodCallsFixer::class)->call('configure', [[
+            'call_type' => 'this',
+        ]])
         // There should not be an empty `return` statement at the end of a function.
         ->set(NoUselessReturnFixer::class)
         // Local, dynamic and directly referenced variables should not be assigned and directly returned by a function or method.
