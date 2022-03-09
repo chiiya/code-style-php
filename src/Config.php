@@ -51,7 +51,15 @@ class Config extends BaseConfig
                     'allow_single_line_closure' => true,
                 ],
                 'octal_notation' => true,
-                'class_attributes_separation' => true,
+                'class_attributes_separation' => [
+                    'elements' => [
+                        'const' => 'only_if_meta',
+                        'method' => 'one',
+                        'property' => 'only_if_meta',
+                        'trait_import' => 'none',
+                        'case' => 'none',
+                    ],
+                ],
                 'ordered_class_elements' => [
                     'order' => [
                         'use_trait',
