@@ -136,7 +136,6 @@ class Config extends BaseConfig
                 'php_unit_internal_class' => false,
                 'php_unit_test_class_requires_covers' => false,
                 'phpdoc_types_order' => false,
-                'single_line_throw' => true,
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
                 MultilinePromotedPropertiesFixer::name() => true,
