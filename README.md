@@ -40,14 +40,14 @@
 Install the package using composer.
 
 ```bash
-composer require chiiya/code-style-php
+composer require chiiya/code-style-php --dev
 ```
 
 ## Usage
 
 ```bash
 # Publish config files
-php artisan vendor:publish --tag="code-style-php-config"
+php artisan vendor:publish --tag="code-style-config"
 ```
 
 Next, adjust the `ecs.php` and `phpstan.neon` files that have just been created in your

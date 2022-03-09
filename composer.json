@@ -1,11 +1,12 @@
 {
     "name": "chiiya/code-style-php",
-    "description": "ESC configuration for PHP projects",
+    "description": "Linting configurations for PHP projects",
     "keywords": [
-        "laravel",
         "code-style",
         "linting",
-        "esc"
+        "esc",
+        "php-cs-fixer",
+        "rector"
     ],
     "homepage": "https://github.com/chiiya/code-style-php",
     "license": "MIT",
@@ -17,13 +18,16 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "nunomaduro/larastan": "^2.0",
-        "phpro/grumphp": "^1.8",
+        "php": "^8.1",
+        "friendsofphp/php-cs-fixer": "^3.7",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.9",
+        "rector/rector": "^0.12.17",
         "slevomat/coding-standard": "^7.0",
-        "spatie/laravel-package-tools": "^1.11",
         "symplify/coding-standard": "^10.0",
         "symplify/easy-coding-standard": "^10.0"
+    },
+    "require-dev": {
+        "phpro/grumphp": "^1.8"
     },
     "autoload": {
         "psr-4": {
@@ -33,16 +37,8 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpro/grumphp": true
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Chiiya\\CodeStyle\\CodeStyleServiceProvider"
-            ]
         }
     },
     "minimum-stability": "dev",

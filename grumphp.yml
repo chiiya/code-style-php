@@ -9,7 +9,7 @@ grumphp:
     failed: failed.txt
     succeeded: succeeded.txt
   parallel:
-    enabled: false
+    enabled: true
     max_workers: 32
   fixer:
     enabled: true
@@ -17,14 +17,8 @@ grumphp:
   extensions: []
   tasks:
     composer: ~
-    git_blacklist:
-      keywords:
-        - ' dd('
-        - 'dump('
-        - 'die;'
-        - 'exit;'
-        - 'ini_set'
-        - 'error_reporting'
-        - 'set_time_limit'
+    phpcsfixer:
+      cache_file: '.php-cs-fixer.cache'
+      config: '.php-cs-fixer.dist.php'
     ecs:
       config: ecs.php

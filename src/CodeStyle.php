@@ -9,5 +9,8 @@ class CodeStyle
      *
      * @api
      */
-    public const LARAVEL = __DIR__.'/laravel.php';
+    public const PHP_CS = __DIR__.'/php-cs.php';
+
+    /** @var string */
+    public const RECTOR = __DIR__.'/rector.php';
 }

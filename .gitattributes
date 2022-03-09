@@ -13,3 +13,6 @@
 /art                     export-ignore
 /docs                    export-ignore
 /UPGRADING.md            export-ignore
+/ecs.php                 export-ignore
+/rector.php              export-ignore
+/grumphp.yml             export-ignore
