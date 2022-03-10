@@ -101,7 +101,6 @@ class Config extends BaseConfig
                     'on_multiline' => 'ensure_fully_multiline',
                 ],
                 'nullable_type_declaration_for_default_null_value' => true,
-                'static_lambda' => true,
                 'global_namespace_import' => [
                     'import_constants' => false,
                     'import_functions' => false,
