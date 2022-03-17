@@ -33,7 +33,7 @@ use Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector;
 use Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector;
 use Rector\CodingStyle\Rector\FuncCall\CallUserFuncArrayToVariadicRector;
 use Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector;
-use Rector\DeadCode\Rector\Assign\RemoveUnusedAssignVariableRector;
+use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveDeadConstructorRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveDelegatingParentCallRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodParameterRector;
@@ -102,12 +102,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(RemoveDeadIfForeachForRector::class)
         ->set(RemoveDeadInstanceOfRector::class)
         ->set(RemoveDelegatingParentCallRector::class)
-        ->set(RemoveUnusedAssignVariableRector::class)
         ->set(RemoveUnusedForeachKeyRector::class)
         ->set(RemoveUnusedPrivateMethodParameterRector::class)
         ->set(RemoveUnusedPrivateMethodRector::class)
         ->set(RemoveUnusedPrivatePropertyRector::class)
         ->set(RemoveUnusedPromotedPropertyRector::class)
+        ->set(RemoveUnusedVariableAssignRector::class)
         ->set(ChangeNestedForeachIfsToEarlyContinueRector::class)
         ->set(ChangeNestedIfsToEarlyReturnRector::class)
         ->set(MultiExceptionCatchRector::class)
