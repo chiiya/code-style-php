@@ -109,7 +109,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(RemoveUnusedPrivateMethodRector::class)
         ->set(RemoveUnusedPrivatePropertyRector::class)
         ->set(RemoveUnusedPromotedPropertyRector::class)
-        ->set(RemoveUnusedVariableAssignRector::class)
         ->set(ChangeNestedForeachIfsToEarlyContinueRector::class)
         ->set(ChangeNestedIfsToEarlyReturnRector::class)
         ->set(MultiExceptionCatchRector::class)
