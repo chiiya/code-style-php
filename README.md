@@ -12,6 +12,16 @@
     Code style configurations for PHP projects using a combination of PHP-CS-Fixer, ECS and Rector.
   </p>
 
+  <a href="https://packagist.org/packages/chiiya/code-style-php">
+    <img src="https://img.shields.io/packagist/v/chiiya/code-style-php.svg?style=flat-square" alt="Latest Version on Packagist">
+  </a>
+  <a href="https://github.com/chiiya/code-style-php/actions?query=workflow%3ALint+branch%3Amaster">
+    <img src="https://img.shields.io/github/workflow/status/chiiya/code-style-php/Lint?label=code%20style" alt="GitHub Code Style Action Statust">
+  </a>
+  <a href="https://packagist.org/packages/chiiya/code-style-php">
+    <img src="https://img.shields.io/packagist/dt/chiiya/code-style-php.svg?style=flat-square" alt="Total Downloads">
+  </a>
+
   <p align="center">
     <strong>
     <a href="#index">index</a>
