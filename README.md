@@ -9,7 +9,7 @@
   </strong>
 
   <p align="center">
-    Code style configuration for PHP/Laravel projects, using ESC, Larastan and GrumPHP 
+    Code style configurations for PHP projects using a combination of PHP-CS-Fixer, ECS and Rector.
   </p>
 
   <p align="center">
@@ -35,11 +35,11 @@
 >> Usage ............................................................................ </a>
 </pre>
 
-Looking for an integration with Laravel? Check out [laravel-code-style](https://github.com/chiiya/laravel-code-style).
-
 ## Installation
 
-Install the package using composer.
+Looking for an integration with Laravel? Check out [laravel-code-style](https://github.com/chiiya/laravel-code-style).
+
+Install the package using composer:
 
 ```bash
 composer require chiiya/code-style-php --dev
