@@ -35,6 +35,8 @@
 >> Usage ............................................................................ </a>
 </pre>
 
+Looking for an integration with Laravel? Check out [laravel-code-style](https://github.com/chiiya/laravel-code-style).
+
 ## Installation
 
 Install the package using composer.
@@ -44,11 +46,5 @@ composer require chiiya/code-style-php --dev
 ```
 
 ## Usage
-
-```bash
-# Publish config files
-php artisan vendor:publish --tag="code-style-config"
-```
-
-Next, adjust the `ecs.php` and `phpstan.neon` files that have just been created in your
-project folder to suit your project structure.
+Simply import the rules in your PHP-CS-Fixer, ECS and Rector config files. Have a look at the 
+`.php-cs-fixer.dist.php`, `ecs.php` and `rector.php` in this repository for an example.

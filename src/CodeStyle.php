@@ -9,8 +9,8 @@ class CodeStyle
      *
      * @api
      */
-    public const PHP_CS = __DIR__.'/php-cs.php';
+    final public const PHP_CS = __DIR__.'/php-cs.php';
 
     /** @var string */
-    public const RECTOR = __DIR__.'/rector.php';
+    final public const RECTOR = __DIR__.'/rector.php';
 }

@@ -18,7 +18,5 @@ grumphp:
   tasks:
     composer: ~
     phpcsfixer:
-      cache_file: '.php-cs-fixer.cache'
       config: '.php-cs-fixer.dist.php'
-    ecs:
-      config: ecs.php
+    ecs: ~
