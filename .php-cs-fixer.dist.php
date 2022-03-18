@@ -4,10 +4,10 @@ use Chiiya\CodeStyle\Config;
 use PhpCsFixer\Finder;
 use PhpCsFixerCustomFixers\Fixer\CommentedOutFunctionFixer;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 return (new Config)
-    ->setFinder(Finder::create()->in(__DIR__ . '/src'))
+    ->setFinder(Finder::create()->in(__DIR__.'/src'))
     ->setRules([
         '@Chiiya' => true,
         '@Chiiya:risky' => true,
