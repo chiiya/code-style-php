@@ -11,7 +11,6 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer;
 use Symplify\CodingStandard\Fixer\Commenting\ParamReturnAndVarTagMalformsFixer;
 use Symplify\CodingStandard\Fixer\Commenting\RemoveUselessDefaultCommentFixer;
-use Symplify\CodingStandard\Fixer\LineLength\DocBlockLineLengthFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -26,8 +25,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(ParamReturnAndVarTagMalformsFixer::class)
         // Remove useless PHPStorm-generated to do comments, redundant "Class XY" or "gets service" comments etc.
         ->set(RemoveUselessDefaultCommentFixer::class)
-        // Docblock length should fit expected width.
-        ->set(DocBlockLineLengthFixer::class)
         // Array items, method parameters, method call arguments, new arguments should be on same/standalone line to fit line length.
         ->set(LineLengthFixer::class)
 
