@@ -143,6 +143,11 @@ class Config extends BaseConfig
                 'php_unit_internal_class' => false,
                 'php_unit_test_class_requires_covers' => false,
                 'phpdoc_types_order' => false,
+                'date_time_create_from_format_call' => true,
+                'types_spaces' => [
+                    'space' => 'none',
+                    'space_multiple_catch' => 'single',
+                ],
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
                 MultilinePromotedPropertiesFixer::name() => true,

@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "friendsofphp/php-cs-fixer": "^3.7",
+        "friendsofphp/php-cs-fixer": "^3.8",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.9",
         "rector/rector": "^0.12.17",
         "slevomat/coding-standard": "^7.0",
