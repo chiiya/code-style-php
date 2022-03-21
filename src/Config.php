@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Chiiya\CodeStyle;
 
 use PhpCsFixer\Config as BaseConfig;
 use PhpCsFixer\ConfigInterface;
 use PhpCsFixerCustomFixers\Fixer\ConstructorEmptyBracesFixer;
+use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
 use PhpCsFixerCustomFixers\Fixer\NoPhpStormGeneratedCommentFixer;
@@ -151,6 +152,7 @@ class Config extends BaseConfig
                 NoUselessCommentFixer::name() => true,
                 NoUselessParenthesisFixer::name() => true,
                 PhpdocTypesCommaSpacesFixer::name() => true,
+                DeclareAfterOpeningTagFixer::name() => true,
             ],
             '@Chiiya:risky' => [
                 '@PhpCsFixer:risky' => true,
@@ -180,6 +182,7 @@ class Config extends BaseConfig
                 'native_constant_invocation' => false,
                 'native_function_invocation' => false,
                 'final_internal_class' => false,
+                'declare_strict_types' => true,
                 PhpUnitAssertArgumentsOrderFixer::name() => true,
                 PhpUnitDedicatedAssertFixer::name() => true,
             ],
