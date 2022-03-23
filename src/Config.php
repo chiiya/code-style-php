@@ -150,7 +150,7 @@ class Config extends BaseConfig
                     'space_multiple_catch' => 'single',
                 ],
                 'phpdoc_to_comment' => [
-                    'ignored_tags' => ['uses'],
+                    'ignored_tags' => ['use'],
                 ],
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
