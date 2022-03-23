@@ -149,6 +149,9 @@ class Config extends BaseConfig
                     'space' => 'none',
                     'space_multiple_catch' => 'single',
                 ],
+                'phpdoc_to_comment' => [
+                    'ignored_tags' => ['uses'],
+                ],
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
                 MultilinePromotedPropertiesFixer::name() => true,
