@@ -9,10 +9,11 @@ use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
 use Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector;
 use Rector\CodeQuality\Rector\Foreach_\SimplifyForeachToArrayFilterRector;
 use Rector\CodeQuality\Rector\Foreach_\UnusedForeachValueToArrayKeysRector;
+use Rector\CodeQuality\Rector\FuncCall\ArrayKeysAndInArrayToArrayKeyExistsRector;
 use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
-use Rector\CodeQuality\Rector\FuncCall\InArrayAndArrayKeysToArrayKeyExistsRector;
 use Rector\CodeQuality\Rector\FuncCall\IsAWithStringWithThirdArgumentRector;
 use Rector\CodeQuality\Rector\FuncCall\SimplifyRegexPatternRector;
+use Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector;
 use Rector\CodeQuality\Rector\Identical\BooleanNotIdenticalToNotIdenticalRector;
 use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 use Rector\CodeQuality\Rector\Identical\GetClassToInstanceOfRector;
@@ -24,7 +25,6 @@ use Rector\CodeQuality\Rector\If_\ConsecutiveNullCompareReturnsToNullCoalesceQue
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\If_\ShortenElseIfRector;
 use Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector;
-use Rector\CodeQuality\Rector\Return_\SimplifyUselessVariableRector;
 use Rector\CodeQuality\Rector\Switch_\SingularSwitchToIfRector;
 use Rector\CodeQuality\Rector\Ternary\ArrayKeyExistsTernaryThenValueToCoalescingRector;
 use Rector\CodeQuality\Rector\Ternary\SwitchNegatedTernaryRector;
@@ -76,7 +76,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(FlipTypeControlToUseExclusiveTypeRector::class)
         ->set(ForeachToInArrayRector::class)
         ->set(GetClassToInstanceOfRector::class)
-        ->set(InArrayAndArrayKeysToArrayKeyExistsRector::class)
+        ->set(ArrayKeysAndInArrayToArrayKeyExistsRector::class)
         ->set(InlineIfToExplicitIfRector::class)
         ->set(IsAWithStringWithThirdArgumentRector::class)
         ->set(ShortenElseIfRector::class)
