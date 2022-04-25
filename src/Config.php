@@ -81,7 +81,7 @@ class Config extends BaseConfig
                         'method_public',
                         'method_protected',
                         'method_private',
-                        'magic',
+                        // 'magic', -> Waiting for https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/6360
                     ],
                 ],
                 'self_static_accessor' => true,
