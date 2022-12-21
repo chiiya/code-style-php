@@ -92,6 +92,7 @@ class Config extends BaseConfig
                     'after_heredoc' => true,
                     'elements' => ['arrays', 'arguments', 'parameters'],
                 ],
+                'no_trailing_comma_in_singleline' => true,
                 'yoda_style' => [
                     'equal' => false,
                     'identical' => false,
@@ -154,6 +155,10 @@ class Config extends BaseConfig
                 ],
                 'no_useless_nullsafe_operator' => true,
                 'no_useless_concat_operator' => true,
+                'ordered_imports' => true,
+                'concat_space' => [
+                    'spacing' => 'none',
+                ],
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
                 MultilinePromotedPropertiesFixer::name() => true,

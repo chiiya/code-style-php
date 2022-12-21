@@ -2,6 +2,7 @@
 
 namespace Chiiya\CodeStyle;
 
+use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
 use SlevomatCodingStandard\Sniffs\Classes\MethodSpacingSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\RequireMultiLineTernaryOperatorSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\RequireNullSafeObjectOperatorSniff;
@@ -22,6 +23,18 @@ return static function (ECSConfig $config): void {
     $config->ruleWithConfiguration(MethodSpacingSniff::class, [
         'minLinesCount' => 1,
         'maxLinesCount' => 1,
+    ]);
+    $config->ruleWithConfiguration(ForbiddenFunctionsSniff::class, [
+        'forbiddenFunctions' => [
+            'compact' => null,
+            'dd' => null,
+            'dump' => null,
+            'var_dump' => null,
+            'env' => 'config',
+        ],
+    ]);
+    $config->skip([
+        ForbiddenFunctionsSniff::class => [__DIR__.'/config/*'],
     ]);
     $config->rules([
         // -----------------------
