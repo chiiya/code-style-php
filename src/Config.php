@@ -152,6 +152,8 @@ class Config extends BaseConfig
                 'phpdoc_to_comment' => [
                     'ignored_tags' => ['use', 'lang'],
                 ],
+                'no_useless_nullsafe_operator' => true,
+                'no_useless_concat_operator' => true,
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
                 MultilinePromotedPropertiesFixer::name() => true,

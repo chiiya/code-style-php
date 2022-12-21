@@ -29,6 +29,7 @@ use Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector;
 use Rector\CodeQuality\Rector\Switch_\SingularSwitchToIfRector;
 use Rector\CodeQuality\Rector\Ternary\ArrayKeyExistsTernaryThenValueToCoalescingRector;
 use Rector\CodeQuality\Rector\Ternary\SwitchNegatedTernaryRector;
+use Rector\CodeQuality\Rector\Ternary\TernaryEmptyArrayArrayDimFetchToCoalesceRector;
 use Rector\CodeQuality\Rector\Ternary\UnnecessaryTernaryExpressionRector;
 use Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector;
 use Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector;
@@ -36,7 +37,6 @@ use Rector\CodingStyle\Rector\FuncCall\CallUserFuncArrayToVariadicRector;
 use Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
-use Rector\DeadCode\Rector\ClassMethod\RemoveDeadConstructorRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveDelegatingParentCallRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodParameterRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodRector;
@@ -46,11 +46,12 @@ use Rector\DeadCode\Rector\For_\RemoveDeadIfForeachForRector;
 use Rector\DeadCode\Rector\Foreach_\RemoveUnusedForeachKeyRector;
 use Rector\DeadCode\Rector\If_\RemoveDeadInstanceOfRector;
 use Rector\DeadCode\Rector\Property\RemoveUnusedPrivatePropertyRector;
+use Rector\DeadCode\Rector\StmtsAwareInterface\RemoveJustVariableAssignRector;
 use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector;
 use Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector;
+use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
 use Rector\Php71\Rector\ClassConst\PublicConstantVisibilityRector;
 use Rector\Php71\Rector\TryCatch\MultiExceptionCatchRector;
-use Rector\Php74\Rector\Property\TypedPropertyRector;
 use Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
 use Rector\Php80\Rector\FunctionLike\UnionTypesRector;
@@ -91,12 +92,12 @@ return static function (RectorConfig $config): void {
         SwitchNegatedTernaryRector::class,
         ThrowWithPreviousExceptionRector::class,
         UnnecessaryTernaryExpressionRector::class,
+        TernaryEmptyArrayArrayDimFetchToCoalesceRector::class,
         UnusedForeachValueToArrayKeysRector::class,
         BinarySwitchToIfElseRector::class,
         CallUserFuncArrayToVariadicRector::class,
         MakeInheritedMethodVisibilitySameAsParentRector::class,
         VarConstantCommentRector::class,
-        RemoveDeadConstructorRector::class,
         RemoveDeadContinueRector::class,
         RemoveDeadIfForeachForRector::class,
         RemoveDeadInstanceOfRector::class,
@@ -105,13 +106,14 @@ return static function (RectorConfig $config): void {
         RemoveUnusedPrivateMethodParameterRector::class,
         RemoveUnusedPrivateMethodRector::class,
         RemoveUnusedPrivatePropertyRector::class,
+        RemoveJustVariableAssignRector::class,
         RemoveUnusedPromotedPropertyRector::class,
         RemoveUnusedVariableAssignRector::class,
         ChangeNestedForeachIfsToEarlyContinueRector::class,
         ChangeNestedIfsToEarlyReturnRector::class,
+        ReturnEarlyIfVariableRector::class,
         MultiExceptionCatchRector::class,
         PublicConstantVisibilityRector::class,
-        TypedPropertyRector::class,
         ChangeSwitchToMatchRector::class,
         ClassPropertyAssignToConstructorPromotionRector::class,
         RemoveUnusedVariableInCatchRector::class,
