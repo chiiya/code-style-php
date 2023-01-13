@@ -34,7 +34,7 @@ return static function (ECSConfig $config): void {
         ],
     ]);
     $config->skip([
-        ForbiddenFunctionsSniff::class => ['*/config/*'],
+        ForbiddenFunctionsSniff::class => ['*/config/*', '*/Config/*'],
     ]);
     $config->rules([
         // -----------------------
