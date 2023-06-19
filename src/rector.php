@@ -10,7 +10,6 @@ use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
 use Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector;
 use Rector\CodeQuality\Rector\Foreach_\SimplifyForeachToArrayFilterRector;
 use Rector\CodeQuality\Rector\Foreach_\UnusedForeachValueToArrayKeysRector;
-use Rector\CodeQuality\Rector\FuncCall\ArrayKeysAndInArrayToArrayKeyExistsRector;
 use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
 use Rector\CodeQuality\Rector\FuncCall\IsAWithStringWithThirdArgumentRector;
 use Rector\CodeQuality\Rector\FuncCall\SimplifyRegexPatternRector;
@@ -26,6 +25,7 @@ use Rector\CodeQuality\Rector\If_\ConsecutiveNullCompareReturnsToNullCoalesceQue
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\If_\ShortenElseIfRector;
 use Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector;
+use Rector\CodeQuality\Rector\NullsafeMethodCall\CleanupUnneededNullsafeOperatorRector;
 use Rector\CodeQuality\Rector\Switch_\SingularSwitchToIfRector;
 use Rector\CodeQuality\Rector\Ternary\ArrayKeyExistsTernaryThenValueToCoalescingRector;
 use Rector\CodeQuality\Rector\Ternary\SwitchNegatedTernaryRector;
@@ -37,7 +37,6 @@ use Rector\CodingStyle\Rector\FuncCall\CallUserFuncArrayToVariadicRector;
 use Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
-use Rector\DeadCode\Rector\ClassMethod\RemoveDelegatingParentCallRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodParameterRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPromotedPropertyRector;
@@ -50,11 +49,11 @@ use Rector\DeadCode\Rector\StmtsAwareInterface\RemoveJustVariableAssignRector;
 use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector;
 use Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
+use Rector\Php70\Rector\StmtsAwareInterface\IfIssetToCoalescingRector;
 use Rector\Php71\Rector\ClassConst\PublicConstantVisibilityRector;
 use Rector\Php71\Rector\TryCatch\MultiExceptionCatchRector;
 use Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
-use Rector\Php80\Rector\FunctionLike\UnionTypesRector;
 use Rector\Php80\Rector\Identical\StrEndsWithRector;
 use Rector\Php80\Rector\Identical\StrStartsWithRector;
 use Rector\Php80\Rector\NotIdentical\StrContainsRector;
@@ -62,7 +61,6 @@ use Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector;
 use Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector;
 use Rector\Php81\Rector\ClassMethod\NewInInitializerRector;
 use Rector\Php81\Rector\FunctionLike\IntersectionTypesRector;
-use Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector;
 
 return static function (RectorConfig $config): void {
     $config->rules([
@@ -76,7 +74,6 @@ return static function (RectorConfig $config): void {
         FlipTypeControlToUseExclusiveTypeRector::class,
         ForeachToInArrayRector::class,
         GetClassToInstanceOfRector::class,
-        ArrayKeysAndInArrayToArrayKeyExistsRector::class,
         InlineIfToExplicitIfRector::class,
         IsAWithStringWithThirdArgumentRector::class,
         ShortenElseIfRector::class,
@@ -101,7 +98,6 @@ return static function (RectorConfig $config): void {
         RemoveDeadContinueRector::class,
         RemoveDeadIfForeachForRector::class,
         RemoveDeadInstanceOfRector::class,
-        RemoveDelegatingParentCallRector::class,
         RemoveUnusedForeachKeyRector::class,
         RemoveUnusedPrivateMethodParameterRector::class,
         RemoveUnusedPrivateMethodRector::class,
@@ -120,11 +116,11 @@ return static function (RectorConfig $config): void {
         StrContainsRector::class,
         StrEndsWithRector::class,
         StrStartsWithRector::class,
-        UnionTypesRector::class,
         FinalizePublicClassConstantRector::class,
         IntersectionTypesRector::class,
         NewInInitializerRector::class,
-        MakeTypedPropertyNullableIfCheckedRector::class,
         InlineArrayReturnAssignRector::class,
+        CleanupUnneededNullsafeOperatorRector::class,
+        IfIssetToCoalescingRector::class,
     ]);
 };
