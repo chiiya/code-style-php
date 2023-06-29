@@ -31,7 +31,6 @@ use Rector\CodeQuality\Rector\Ternary\ArrayKeyExistsTernaryThenValueToCoalescing
 use Rector\CodeQuality\Rector\Ternary\SwitchNegatedTernaryRector;
 use Rector\CodeQuality\Rector\Ternary\TernaryEmptyArrayArrayDimFetchToCoalesceRector;
 use Rector\CodeQuality\Rector\Ternary\UnnecessaryTernaryExpressionRector;
-use Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector;
 use Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector;
 use Rector\CodingStyle\Rector\FuncCall\CallUserFuncArrayToVariadicRector;
 use Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector;
@@ -94,7 +93,6 @@ return static function (RectorConfig $config): void {
         BinarySwitchToIfElseRector::class,
         CallUserFuncArrayToVariadicRector::class,
         MakeInheritedMethodVisibilitySameAsParentRector::class,
-        VarConstantCommentRector::class,
         RemoveDeadContinueRector::class,
         RemoveDeadIfForeachForRector::class,
         RemoveDeadInstanceOfRector::class,
