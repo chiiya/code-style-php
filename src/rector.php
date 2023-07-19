@@ -8,7 +8,6 @@ use Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector;
 use Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector;
 use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
 use Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector;
-use Rector\CodeQuality\Rector\Foreach_\SimplifyForeachToArrayFilterRector;
 use Rector\CodeQuality\Rector\Foreach_\UnusedForeachValueToArrayKeysRector;
 use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
 use Rector\CodeQuality\Rector\FuncCall\IsAWithStringWithThirdArgumentRector;
@@ -44,7 +43,6 @@ use Rector\DeadCode\Rector\For_\RemoveDeadIfForeachForRector;
 use Rector\DeadCode\Rector\Foreach_\RemoveUnusedForeachKeyRector;
 use Rector\DeadCode\Rector\If_\RemoveDeadInstanceOfRector;
 use Rector\DeadCode\Rector\Property\RemoveUnusedPrivatePropertyRector;
-use Rector\DeadCode\Rector\StmtsAwareInterface\RemoveJustVariableAssignRector;
 use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector;
 use Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
@@ -80,7 +78,6 @@ return static function (RectorConfig $config): void {
         SimplifyBoolIdenticalTrueRector::class,
         SimplifyConditionsRector::class,
         SimplifyDeMorganBinaryRector::class,
-        SimplifyForeachToArrayFilterRector::class,
         SimplifyIfElseToTernaryRector::class,
         SimplifyRegexPatternRector::class,
         SimplifyUselessVariableRector::class,
@@ -100,7 +97,6 @@ return static function (RectorConfig $config): void {
         RemoveUnusedPrivateMethodParameterRector::class,
         RemoveUnusedPrivateMethodRector::class,
         RemoveUnusedPrivatePropertyRector::class,
-        RemoveJustVariableAssignRector::class,
         RemoveUnusedPromotedPropertyRector::class,
         RemoveUnusedVariableAssignRector::class,
         ChangeNestedForeachIfsToEarlyContinueRector::class,
