@@ -57,7 +57,6 @@ use Rector\Php80\Rector\NotIdentical\StrContainsRector;
 use Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector;
 use Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector;
 use Rector\Php81\Rector\ClassMethod\NewInInitializerRector;
-use Rector\Php81\Rector\FunctionLike\IntersectionTypesRector;
 
 return static function (RectorConfig $config): void {
     $config->rules([
@@ -111,7 +110,6 @@ return static function (RectorConfig $config): void {
         StrEndsWithRector::class,
         StrStartsWithRector::class,
         FinalizePublicClassConstantRector::class,
-        IntersectionTypesRector::class,
         NewInInitializerRector::class,
         InlineArrayReturnAssignRector::class,
         CleanupUnneededNullsafeOperatorRector::class,
