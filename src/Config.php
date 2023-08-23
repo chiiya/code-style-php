@@ -184,7 +184,6 @@ class Config extends BaseConfig
                 'mb_str_functions' => true,
                 'modernize_strpos' => true,
                 'ordered_interfaces' => true,
-                'date_time_immutable' => true,
                 'regular_callable_call' => true,
                 'use_arrow_functions' => true,
                 'void_return' => true,
