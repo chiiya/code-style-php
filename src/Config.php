@@ -201,6 +201,7 @@ class Config extends BaseConfig
                 'native_function_invocation' => false,
                 'final_internal_class' => false,
                 'declare_strict_types' => true,
+                'static_lambda' => false,
                 PhpUnitAssertArgumentsOrderFixer::name() => true,
                 PhpUnitDedicatedAssertFixer::name() => true,
             ],
