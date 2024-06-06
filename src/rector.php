@@ -32,7 +32,6 @@ use Rector\CodeQuality\Rector\Ternary\TernaryEmptyArrayArrayDimFetchToCoalesceRe
 use Rector\CodeQuality\Rector\Ternary\UnnecessaryTernaryExpressionRector;
 use Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector;
 use Rector\CodingStyle\Rector\FuncCall\CallUserFuncArrayToVariadicRector;
-use Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodParameterRector;
@@ -55,7 +54,6 @@ use Rector\Php80\Rector\Identical\StrEndsWithRector;
 use Rector\Php80\Rector\Identical\StrStartsWithRector;
 use Rector\Php80\Rector\NotIdentical\StrContainsRector;
 use Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector;
-use Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector;
 use Rector\Php81\Rector\ClassMethod\NewInInitializerRector;
 
 return static function (RectorConfig $config): void {
@@ -86,7 +84,6 @@ return static function (RectorConfig $config): void {
         UnnecessaryTernaryExpressionRector::class,
         TernaryEmptyArrayArrayDimFetchToCoalesceRector::class,
         UnusedForeachValueToArrayKeysRector::class,
-        BinarySwitchToIfElseRector::class,
         CallUserFuncArrayToVariadicRector::class,
         MakeInheritedMethodVisibilitySameAsParentRector::class,
         RemoveDeadContinueRector::class,
@@ -109,7 +106,6 @@ return static function (RectorConfig $config): void {
         StrContainsRector::class,
         StrEndsWithRector::class,
         StrStartsWithRector::class,
-        FinalizePublicClassConstantRector::class,
         NewInInitializerRector::class,
         InlineArrayReturnAssignRector::class,
         CleanupUnneededNullsafeOperatorRector::class,
