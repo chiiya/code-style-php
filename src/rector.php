@@ -15,7 +15,6 @@ use Rector\CodeQuality\Rector\FuncCall\SimplifyRegexPatternRector;
 use Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector;
 use Rector\CodeQuality\Rector\Identical\BooleanNotIdenticalToNotIdenticalRector;
 use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
-use Rector\CodeQuality\Rector\Identical\GetClassToInstanceOfRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyArraySearchRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyConditionsRector;
@@ -67,7 +66,6 @@ return static function (RectorConfig $config): void {
         ExplicitBoolCompareRector::class,
         FlipTypeControlToUseExclusiveTypeRector::class,
         ForeachToInArrayRector::class,
-        GetClassToInstanceOfRector::class,
         InlineIfToExplicitIfRector::class,
         IsAWithStringWithThirdArgumentRector::class,
         ShortenElseIfRector::class,
