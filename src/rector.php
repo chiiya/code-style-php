@@ -45,7 +45,6 @@ use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRect
 use Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
 use Rector\Php70\Rector\StmtsAwareInterface\IfIssetToCoalescingRector;
-use Rector\Php71\Rector\ClassConst\PublicConstantVisibilityRector;
 use Rector\Php71\Rector\TryCatch\MultiExceptionCatchRector;
 use Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
@@ -97,7 +96,6 @@ return static function (RectorConfig $config): void {
         ChangeNestedIfsToEarlyReturnRector::class,
         ReturnEarlyIfVariableRector::class,
         MultiExceptionCatchRector::class,
-        PublicConstantVisibilityRector::class,
         ChangeSwitchToMatchRector::class,
         ClassPropertyAssignToConstructorPromotionRector::class,
         RemoveUnusedVariableInCatchRector::class,
