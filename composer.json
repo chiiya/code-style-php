@@ -19,15 +19,15 @@
     ],
     "require": {
         "php": "^8.2",
-        "friendsofphp/php-cs-fixer": "^3.18",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.14",
-        "rector/rector": "^1.1",
-        "slevomat/coding-standard": "^8.12",
-        "symplify/coding-standard": "^12.1",
-        "symplify/easy-coding-standard": "^12.2"
+        "friendsofphp/php-cs-fixer": "^3.68",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.22",
+        "rector/rector": "^2.0",
+        "slevomat/coding-standard": "^8.15",
+        "symplify/coding-standard": "^12.2",
+        "symplify/easy-coding-standard": "^12.5"
     },
     "require-dev": {
-        "phpro/grumphp": "^2.0"
+        "phpro/grumphp": "^2.10"
     },
     "autoload": {
         "psr-4": {
