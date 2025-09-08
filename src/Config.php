@@ -7,7 +7,6 @@ use PhpCsFixer\ConfigInterface;
 use PhpCsFixerCustomFixers\Fixer\ConstructorEmptyBracesFixer;
 use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
-use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
 use PhpCsFixerCustomFixers\Fixer\NoPhpStormGeneratedCommentFixer;
 use PhpCsFixerCustomFixers\Fixer\NoSuperfluousConcatenationFixer;
 use PhpCsFixerCustomFixers\Fixer\NoUselessCommentFixer;
@@ -112,7 +111,8 @@ class Config extends BaseConfig
                 'declare_parentheses' => true,
                 'list_syntax' => true,
                 'assign_null_coalescing_to_coalesce_equal' => true,
-                'new_with_braces' => [
+                'new_with_parentheses' => [
+                    'anonymous_class' => false,
                     'named_class' => false,
                 ],
                 'not_operator_with_successor_space' => true,
@@ -156,16 +156,21 @@ class Config extends BaseConfig
                 ],
                 'no_useless_nullsafe_operator' => true,
                 'no_useless_concat_operator' => true,
-                'ordered_imports' => true,
                 'concat_space' => [
                     'spacing' => 'none',
                 ],
                 'align_multiline_comment' => true,
                 'no_null_property_initialization' => true,
                 'single_line_empty_body' => true,
+                'attribute_empty_parentheses' => [
+                    'use_parentheses' => false,
+                ],
+                'multiline_promoted_properties' => [
+                    'keep_blank_lines' => true,
+                    'minimum_number_of_parameters' => 1,
+                ],
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
-                MultilinePromotedPropertiesFixer::name() => true,
                 NoPhpStormGeneratedCommentFixer::name() => true,
                 NoSuperfluousConcatenationFixer::name() => true,
                 NoUselessCommentFixer::name() => true,
