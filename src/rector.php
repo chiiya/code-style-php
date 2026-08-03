@@ -11,7 +11,6 @@ use Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector;
 use Rector\CodeQuality\Rector\Foreach_\UnusedForeachValueToArrayKeysRector;
 use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
 use Rector\CodeQuality\Rector\FuncCall\IsAWithStringWithThirdArgumentRector;
-use Rector\CodeQuality\Rector\FuncCall\SimplifyRegexPatternRector;
 use Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector;
 use Rector\CodeQuality\Rector\Identical\BooleanNotIdenticalToNotIdenticalRector;
 use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
@@ -72,7 +71,6 @@ return static function (RectorConfig $config): void {
         SimplifyConditionsRector::class,
         SimplifyDeMorganBinaryRector::class,
         SimplifyIfElseToTernaryRector::class,
-        SimplifyRegexPatternRector::class,
         SimplifyUselessVariableRector::class,
         SingularSwitchToIfRector::class,
         SwitchNegatedTernaryRector::class,
