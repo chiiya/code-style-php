@@ -4,21 +4,41 @@ namespace Chiiya\CodeStyle;
 
 use PhpCsFixer\Config as BaseConfig;
 use PhpCsFixer\ConfigInterface;
+use PhpCsFixerCustomFixers\Fixer\ClassConstantUsageFixer;
+use PhpCsFixerCustomFixers\Fixer\CommentedOutFunctionFixer;
+use PhpCsFixerCustomFixers\Fixer\CommentSurroundedBySpacesFixer;
 use PhpCsFixerCustomFixers\Fixer\ConstructorEmptyBracesFixer;
 use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
+use PhpCsFixerCustomFixers\Fixer\ForeachUseValueFixer;
+use PhpCsFixerCustomFixers\Fixer\FunctionParameterSeparationFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
+use PhpCsFixerCustomFixers\Fixer\NoDuplicatedArrayKeyFixer;
+use PhpCsFixerCustomFixers\Fixer\NoDuplicatedImportsFixer;
+use PhpCsFixerCustomFixers\Fixer\NoLeadingSlashInGlobalNamespaceFixer;
 use PhpCsFixerCustomFixers\Fixer\NoPhpStormGeneratedCommentFixer;
 use PhpCsFixerCustomFixers\Fixer\NoSuperfluousConcatenationFixer;
 use PhpCsFixerCustomFixers\Fixer\NoUselessCommentFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessDirnameCallFixer;
 use PhpCsFixerCustomFixers\Fixer\NoUselessParenthesisFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessStrlenFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessWriteVisibilityFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocNoIncorrectVarAnnotationFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocNoSuperfluousParamFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocPropertySortedFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocSelfAccessorFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocSingleLineVarFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocTypesCommaSpacesFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocTypesTrimFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpUnitAssertArgumentsOrderFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpUnitDedicatedAssertFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpUnitNoUselessReturnFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpUnitRequiresConstraintFixer;
+use PhpCsFixerCustomFixers\Fixer\PromotedConstructorPropertyFixer;
 use PhpCsFixerCustomFixers\Fixers;
 
 class Config extends BaseConfig
 {
-    public function __construct($name = 'Chiiya')
+    public function __construct(string $name = 'Chiiya')
     {
         parent::__construct($name);
 
@@ -44,11 +64,9 @@ class Config extends BaseConfig
         return [
             '@Chiiya' => [
                 '@PhpCsFixer' => true,
+                '@autoPHPMigration' => true,
                 'no_whitespace_before_comma_in_array' => [
                     'after_heredoc' => true,
-                ],
-                'braces' => [
-                    'allow_single_line_closure' => true,
                 ],
                 'octal_notation' => true,
                 'class_attributes_separation' => [
@@ -169,6 +187,44 @@ class Config extends BaseConfig
                     'keep_blank_lines' => true,
                     'minimum_number_of_parameters' => 1,
                 ],
+                'fully_qualified_strict_types' => [
+                    'import_symbols' => true,
+                    'phpdoc_tags' => [
+                        'param', 'phpstan-param', 'phpstan-property', 'phpstan-property-read', 'phpstan-property-write',
+                        'phpstan-return', 'phpstan-var', 'property', 'property-read', 'property-write', 'psalm-param',
+                        'psalm-property', 'psalm-property-read', 'psalm-property-write', 'psalm-return', 'psalm-var',
+                        'return', 'see', 'throws', 'var', 'extends', 'implements', 'use', 'phpstan-extends',
+                        'phpstan-implements', 'phpstan-use', 'psalm-extends', 'psalm-implements', 'psalm-use', 'mixin',
+                        'param-out', 'param-closure-this', 'phpstan-param-out', 'phpstan-assert',
+                        'phpstan-assert-if-true', 'phpstan-assert-if-false', 'phpstan-self-out', 'phpstan-this-out',
+                        'phpstan-require-extends', 'phpstan-require-implements',
+                    ],
+                ],
+                'heredoc_closing_marker' => true,
+                'no_redundant_readonly_property' => true,
+                'numeric_literal_separator' => [
+                    'override_existing' => true,
+                ],
+                'ordered_attributes' => true,
+                'php_unit_attributes' => true,
+                'phpdoc_param_order' => true,
+                'stringable_for_to_string' => true,
+                ClassConstantUsageFixer::name() => true,
+                CommentSurroundedBySpacesFixer::name() => true,
+                FunctionParameterSeparationFixer::name() => true,
+                NoDuplicatedArrayKeyFixer::name() => true,
+                NoDuplicatedImportsFixer::name() => true,
+                NoLeadingSlashInGlobalNamespaceFixer::name() => true,
+                NoUselessDirnameCallFixer::name() => true,
+                NoUselessWriteVisibilityFixer::name() => true,
+                PhpdocNoIncorrectVarAnnotationFixer::name() => true,
+                PhpdocNoSuperfluousParamFixer::name() => true,
+                PhpdocPropertySortedFixer::name() => true,
+                PhpdocSelfAccessorFixer::name() => true,
+                PhpdocSingleLineVarFixer::name() => true,
+                PhpdocTypesTrimFixer::name() => true,
+                PhpUnitRequiresConstraintFixer::name() => true,
+                PromotedConstructorPropertyFixer::name() => true,
                 ConstructorEmptyBracesFixer::name() => true,
                 MultilineCommentOpeningClosingAloneFixer::name() => true,
                 NoPhpStormGeneratedCommentFixer::name() => true,
@@ -180,6 +236,7 @@ class Config extends BaseConfig
             ],
             '@Chiiya:risky' => [
                 '@PhpCsFixer:risky' => true,
+                '@autoPHPMigration:risky' => true,
                 'random_api_migration' => [
                     'replacements' => [
                         'mt_rand' => 'random_int',
@@ -187,7 +244,9 @@ class Config extends BaseConfig
                     ],
                 ],
                 'mb_str_functions' => true,
-                'modernize_strpos' => true,
+                'modernize_strpos' => [
+                    'modernize_stripos' => true,
+                ],
                 'ordered_interfaces' => true,
                 'regular_callable_call' => true,
                 'use_arrow_functions' => true,
@@ -207,8 +266,20 @@ class Config extends BaseConfig
                 'final_internal_class' => false,
                 'declare_strict_types' => true,
                 'static_lambda' => false,
+                'class_keyword' => true,
+                'no_useless_printf' => true,
+                'php_unit_assert_new_names' => true,
+                'phpdoc_array_type' => true,
+                'phpdoc_list_type' => true,
+                'phpdoc_readonly_class_comment_to_keyword' => true,
+                CommentedOutFunctionFixer::name() => [
+                    'functions' => ['dd', 'dump', 'ini_set', 'print_r', 'var_dump', 'var_export'],
+                ],
+                ForeachUseValueFixer::name() => true,
+                NoUselessStrlenFixer::name() => true,
                 PhpUnitAssertArgumentsOrderFixer::name() => true,
                 PhpUnitDedicatedAssertFixer::name() => true,
+                PhpUnitNoUselessReturnFixer::name() => true,
             ],
         ];
     }

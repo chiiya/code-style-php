@@ -4,13 +4,7 @@ namespace Chiiya\CodeStyle;
 
 class CodeStyle
 {
-    /**
-     * @var string
-     *
-     * @api
-     */
+    /** @api */
     final public const ECS = __DIR__.'/ecs.php';
-
-    /** @var string */
     final public const RECTOR = __DIR__.'/rector.php';
 }

@@ -3,28 +3,31 @@
 namespace Chiiya\CodeStyle;
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
-use SlevomatCodingStandard\Sniffs\Classes\MethodSpacingSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\RequireMultiLineTernaryOperatorSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\RequireNullSafeObjectOperatorSniff;
 use SlevomatCodingStandard\Sniffs\PHP\DisallowDirectMagicInvokeCallSniff;
-use SlevomatCodingStandard\Sniffs\Variables\UselessVariableSniff;
 use Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer;
-use Symplify\CodingStandard\Fixer\Commenting\ParamReturnAndVarTagMalformsFixer;
-use Symplify\CodingStandard\Fixer\Commenting\RemoveUselessDefaultCommentFixer;
+use Symplify\CodingStandard\Fixer\Commenting\AddMissingParamNameFixer;
+use Symplify\CodingStandard\Fixer\Commenting\AddMissingVarNameFixer;
+use Symplify\CodingStandard\Fixer\Commenting\DoubleAsteriskInlineVarFixer;
+use Symplify\CodingStandard\Fixer\Commenting\FixParamNameTypoFixer;
+use Symplify\CodingStandard\Fixer\Commenting\FixTagTypoFixer;
+use Symplify\CodingStandard\Fixer\Commenting\MergeDocBlockStartFixer;
+use Symplify\CodingStandard\Fixer\Commenting\RemoveDeadVarThisFixer;
+use Symplify\CodingStandard\Fixer\Commenting\RemoveParamNameReferenceFixer;
+use Symplify\CodingStandard\Fixer\Commenting\RemoveSuperfluousReturnNameFixer;
+use Symplify\CodingStandard\Fixer\Commenting\RemoveSuperfluousVarNameFixer;
+use Symplify\CodingStandard\Fixer\Commenting\SwitchedTypeAndNameFixer;
+use Symplify\CodingStandard\Fixer\Commenting\TypeToVarTagFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
-return static function (ECSConfig $config): void {
+return ECSConfig::configure()
     // Ternary operator has to be reformatted to more lines when the line length exceeds the given limit.
-    $config->ruleWithConfiguration(RequireMultiLineTernaryOperatorSniff::class, [
+    ->withConfiguredRule(RequireMultiLineTernaryOperatorSniff::class, [
         'minExpressionsLength' => 60,
-    ]);
-    // Checks that there is a certain number of blank lines between methods.
-    $config->ruleWithConfiguration(MethodSpacingSniff::class, [
-        'minLinesCount' => 1,
-        'maxLinesCount' => 1,
-    ]);
-    $config->ruleWithConfiguration(ForbiddenFunctionsSniff::class, [
+    ])
+    ->withConfiguredRule(ForbiddenFunctionsSniff::class, [
         'forbiddenFunctions' => [
             'compact' => null,
             'dd' => null,
@@ -32,20 +35,30 @@ return static function (ECSConfig $config): void {
             'var_dump' => null,
             'env' => 'config',
         ],
-    ]);
-    $config->skip([
+    ])
+    ->withSkip([
         ForbiddenFunctionsSniff::class => ['*/config/*', '*/Config/*'],
-    ]);
-    $config->rules([
+    ])
+    ->withRules([
         // -----------------------
-        // Simplify Coding Standard
+        // Symplify Coding Standard
         // -----------------------
         // Indexed arrays must have 1 item per line.
         StandaloneLineInMultilineArrayFixer::class,
-        // Fixes @param, @return, @var and inline @var annotations broken formats.
-        ParamReturnAndVarTagMalformsFixer::class,
-        // Remove useless PHPStorm-generated to do comments, redundant "Class XY" or "gets service" comments etc.
-        RemoveUselessDefaultCommentFixer::class,
+        // Fixes @param, @return, @var and inline @var annotations broken formats
+        // (successors of the deprecated ParamReturnAndVarTagMalformsFixer).
+        AddMissingParamNameFixer::class,
+        AddMissingVarNameFixer::class,
+        DoubleAsteriskInlineVarFixer::class,
+        FixParamNameTypoFixer::class,
+        FixTagTypoFixer::class,
+        MergeDocBlockStartFixer::class,
+        RemoveDeadVarThisFixer::class,
+        RemoveParamNameReferenceFixer::class,
+        RemoveSuperfluousReturnNameFixer::class,
+        RemoveSuperfluousVarNameFixer::class,
+        SwitchedTypeAndNameFixer::class,
+        TypeToVarTagFixer::class,
         // Array items, method parameters, method call arguments, new arguments should be on same/standalone line to fit line length.
         LineLengthFixer::class,
 
@@ -56,7 +69,4 @@ return static function (ECSConfig $config): void {
         DisallowDirectMagicInvokeCallSniff::class,
         // Requires using ?-> operator.
         RequireNullSafeObjectOperatorSniff::class,
-        // Remove useless variables.
-        UselessVariableSniff::class,
     ]);
-};

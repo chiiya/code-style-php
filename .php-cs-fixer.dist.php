@@ -2,7 +2,6 @@
 
 use Chiiya\CodeStyle\Config;
 use PhpCsFixer\Finder;
-use PhpCsFixerCustomFixers\Fixer\CommentedOutFunctionFixer;
 
 require __DIR__.'/vendor/autoload.php';
 
@@ -11,8 +10,5 @@ return (new Config)
     ->setRules([
         '@Chiiya' => true,
         '@Chiiya:risky' => true,
-        CommentedOutFunctionFixer::name() => [
-            'functions' => ['dd', 'dump', 'ini_set', 'print_r', 'var_dump', 'var_export'],
-        ],
     ])
     ->setRiskyAllowed(true);

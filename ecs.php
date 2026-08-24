@@ -3,9 +3,8 @@
 use Chiiya\CodeStyle\CodeStyle;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
-return static function (ECSConfig $config): void {
-    $config->import(CodeStyle::ECS);
-    $config->paths([
+return ECSConfig::configure()
+    ->withSets([CodeStyle::ECS])
+    ->withPaths([
         __DIR__.'/src',
     ]);
-};
