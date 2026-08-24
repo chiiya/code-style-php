@@ -8,7 +8,6 @@ use Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector;
 use Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector;
 use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
 use Rector\CodeQuality\Rector\Foreach_\ForeachToInArrayRector;
-use Rector\CodeQuality\Rector\Foreach_\UnusedForeachValueToArrayKeysRector;
 use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
 use Rector\CodeQuality\Rector\FuncCall\IsAWithStringWithThirdArgumentRector;
 use Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector;
@@ -25,7 +24,6 @@ use Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector;
 use Rector\CodeQuality\Rector\NullsafeMethodCall\CleanupUnneededNullsafeOperatorRector;
 use Rector\CodeQuality\Rector\Switch_\SingularSwitchToIfRector;
 use Rector\CodeQuality\Rector\Ternary\ArrayKeyExistsTernaryThenValueToCoalescingRector;
-use Rector\CodeQuality\Rector\Ternary\SwitchNegatedTernaryRector;
 use Rector\CodeQuality\Rector\Ternary\TernaryEmptyArrayArrayDimFetchToCoalesceRector;
 use Rector\CodeQuality\Rector\Ternary\UnnecessaryTernaryExpressionRector;
 use Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector;
@@ -40,8 +38,6 @@ use Rector\DeadCode\Rector\For_\RemoveDeadIfForeachForRector;
 use Rector\DeadCode\Rector\Foreach_\RemoveUnusedForeachKeyRector;
 use Rector\DeadCode\Rector\If_\RemoveDeadInstanceOfRector;
 use Rector\DeadCode\Rector\Property\RemoveUnusedPrivatePropertyRector;
-use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector;
-use Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
 use Rector\Php70\Rector\StmtsAwareInterface\IfIssetToCoalescingRector;
 use Rector\Php71\Rector\TryCatch\MultiExceptionCatchRector;
@@ -73,11 +69,9 @@ return static function (RectorConfig $config): void {
         SimplifyIfElseToTernaryRector::class,
         SimplifyUselessVariableRector::class,
         SingularSwitchToIfRector::class,
-        SwitchNegatedTernaryRector::class,
         ThrowWithPreviousExceptionRector::class,
         UnnecessaryTernaryExpressionRector::class,
         TernaryEmptyArrayArrayDimFetchToCoalesceRector::class,
-        UnusedForeachValueToArrayKeysRector::class,
         CallUserFuncArrayToVariadicRector::class,
         MakeInheritedMethodVisibilitySameAsParentRector::class,
         RemoveDeadContinueRector::class,
@@ -89,8 +83,6 @@ return static function (RectorConfig $config): void {
         RemoveUnusedPrivatePropertyRector::class,
         RemoveUnusedPromotedPropertyRector::class,
         RemoveUnusedVariableAssignRector::class,
-        ChangeNestedForeachIfsToEarlyContinueRector::class,
-        ChangeNestedIfsToEarlyReturnRector::class,
         ReturnEarlyIfVariableRector::class,
         MultiExceptionCatchRector::class,
         ChangeSwitchToMatchRector::class,
