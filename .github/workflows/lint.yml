@@ -16,6 +16,8 @@ jobs:
           coverage: none
       - name: Install composer dependencies
         uses: ramsey/composer-install@v2
+      - name: Check for deprecated Rector rules
+        run: composer check-deprecated-rules
       - name: Easy Coding Standard Action
         run: ./vendor/bin/ecs check --fix
       - name: PHP-CS-Fixer Action

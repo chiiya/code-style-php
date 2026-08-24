@@ -41,6 +41,9 @@
             "phpro/grumphp": true
         }
     },
+    "scripts": {
+        "check-deprecated-rules": "php tests/check-deprecated-rules.php"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
